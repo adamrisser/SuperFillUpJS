@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<script src="sfu.js"></script>
+    <script src="util.js"></script>
+    <script src="game.js"></script>
+    <script src="hud.js"></script>
+    <script src="ball.js"></script>
+    <script src="badball.js"></script>
+	<script src="goodball.js"></script>
+    <style type="text/css">
+        
+        #wrapper, #main {
+            width : 600px;
+            height: 500px;
+        }
+        
+        #wrapper {
+            position: relative;
+            border: 1px solid #000;
+        }
+        
+        #clickToPlay {
+            position: absolute;
+            top:  230px;
+            left: 260px;
+            cursor: pointer;
+        }
+        
+        #hud {
+            padding: 5px 0;
+        }
+        
+        #filled, #level, #balls {
+            padding-right: 100px;
+        }
+        
+        #levelComplete {
+            display: none;
+            position: absolute;
+            top:  190px;
+            left: 220px;
+            cursor: pointer;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+        
+        #levelComplete .link {
+            text-align: center;
+        }
+        
+        .link {
+            color: #00f;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+	    <canvas id="main" width="600" height="500"></canvas>
+        <span id="clickToPlay" class="link">Click to Play</span>
+        <div id="hud">
+            <span>Filled: <span id="filled"></span></span>
+            <span>Level:  <span id="level"></span></span>
+            <span>Balls:  <span id="balls"></span></span>
+            <span>Lives:  <span id="lives"></span></span>
+        </div>
+        <div id="levelComplete">
+            <strong id="msg"></strong>
+            <div>
+                <div>Time taken:     <span id="time"></span></div>
+                <div>Balls left:     <span id="ballsLeft"></span></div>
+                <div>Percent filled: <span id="percent"></span></div>
+                <div id="continue" class="link">Click to continue</div>
+            </div>
+        </div>
+    </div>
+	<script type="text/javascript">
+		window.onload = function () {
+	        game = new sfu.Game(600, 500);
+			
+            var start = document.getElementById('clickToPlay');
+            
+			// TODO: move this
+			// Init the start game link
+			start.addEventListener('click', function () {
+                game.initLevel(1);
+                game.start();
+                start.parentNode.removeChild(start);
+			}, false);
+            
+            document.getElementById('continue').addEventListener('click', function(){
+                document.getElementById('levelComplete').style.display = 'none';
+                game.initLevel(game.level);
+                game.start();
+            }, false);
+		}
+	</script>
+</body>
+</html>

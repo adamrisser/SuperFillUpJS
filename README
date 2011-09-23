@@ -1,0 +1,25 @@
+TODO:
+	
+- Graphics
+    - Add look of disapproval
+	
+- Gameplay
+    - Collisions
+	
+- State
+    - Start Screen
+	
+- Physics
+    - Rolling
+    - Weight
+	
+- Performance
+    - Disposers
+    - JSLint
+    - Check in browsers
+    - Fix TODOS
+    - Shortcut prototypes with a fn var
+    
+ - Code
+ 	- Summary comments at the head of the file
+ 	- License
