@@ -1,10 +1,17 @@
+Flash Version
+    http://redditads.s3.amazonaws.com/1279749100.swf
+
+Firebug shortcuts:
+    window.game.addBadBall()
+
+
 TODO:
 	
 - Graphics
     - Add look of disapproval
 	
 - Gameplay
-    - Collisions
+    - Fix Collisions
 	
 - State
     - Start Screen
@@ -16,7 +23,7 @@ TODO:
 - Performance
     - Disposers
     - JSLint
-    - Check in browsers
+    - Check in all browsers
     - Fix TODOS
     - Shortcut prototypes with a fn var
     
